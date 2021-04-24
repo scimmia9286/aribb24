@@ -359,8 +359,10 @@ static void parse_caption_management_data( arib_parser_t *p_parser, bs_t *p_bs )
     p_parser->i_data_unit_size = 0;
     p_parser->i_subtitle_data_size = 0;
     p_parser->psz_subtitle_data = NULL;
-    p_parser->p_instance->p->i_drcs_num = 0;
-    memset(p_parser->p_instance->p->drcs_hash_table, 0, sizeof(p_parser->p_instance->p->drcs_hash_table));
+    memset(p_parser->p_instance->p->i_drcs_num, 0,
+                        sizeof(p_parser->p_instance->p->i_drcs_num));
+    memset(p_parser->p_instance->p->drcs_hash_table, 0,
+                        sizeof(p_parser->p_instance->p->drcs_hash_table));
     if( i_data_unit_loop_length > 0 )
     {
         p_parser->psz_subtitle_data = (unsigned char*) calloc(
